@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import MailchimpSubscribe, { DefaultFormFields } from 'react-mailchimp-subscribe';
 import styled from 'styled-components';
 import { EnvVars } from 'env';
-import useEscClose from 'hooks/useEscKey';
 import { media } from 'utils/media';
 import Button from './Button';
 import CloseIcon from './CloseIcon';
@@ -17,8 +16,6 @@ export interface NewsletterModalProps {
 
 export default function NewsletterModal({ onClose }: NewsletterModalProps) {
   const [email, setEmail] = useState('');
-
-  useEscClose({ onClose });
 
   function onSubmit(event: React.FormEvent<HTMLFormElement>, enrollNewsletter: (props: DefaultFormFields) => void) {
     event.preventDefault();

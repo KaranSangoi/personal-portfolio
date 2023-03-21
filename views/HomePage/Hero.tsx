@@ -14,15 +14,13 @@ export default function Hero() {
   return (
     <HeroWrapper>
       <Contents>
-        <CustomOverTitle>the coolest, saas product you have ever seen</CustomOverTitle>
-        <Heading>Make your life easier with our SaaS</Heading>
-        <Description>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, tempora qui. Explicabo voluptate iure ipsum molestias
-          repudiandae perspiciatis nostrum praesentium, unde pariatur tempora magni rem. Necessitatibus facilis obcaecati ratione.
-        </Description>
+        <Heading>
+          Hey Coaches, <br /> Time to 2X!
+        </Heading>
+        <Description>I help coaches like you 2X your conversion rate and help you decrease your times spent on DM's by 2X</Description>
         <CustomButtonGroup>
           <Button onClick={() => setIsModalOpened(true)}>
-            Subscribe to the newsletter <span>&rarr;</span>
+            Yes, I want to 2X! <span>&rarr;</span>
           </Button>
           <NextLink href="#whitepaper" passHref>
             <Button transparent>
@@ -31,16 +29,14 @@ export default function Hero() {
           </NextLink>
         </CustomButtonGroup>
       </Contents>
-      <ImageContainer>
-        <HeroIllustration />
-      </ImageContainer>
     </HeroWrapper>
   );
 }
 
 const HeroWrapper = styled(Container)`
   display: flex;
-  padding-top: 5rem;
+  padding-top: 10rem;
+  justify-content: center;
 
   ${media('<=desktop')} {
     padding-top: 1rem;
@@ -52,6 +48,9 @@ const HeroWrapper = styled(Container)`
 const Contents = styled.div`
   flex: 1;
   max-width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   ${media('<=desktop')} {
     max-width: 100%;
@@ -83,8 +82,8 @@ const ImageContainer = styled.div`
 
 const Description = styled.p`
   font-size: 1.8rem;
-  opacity: 0.8;
   line-height: 1.6;
+  text-align: center;
 
   ${media('<=desktop')} {
     font-size: 1.5rem;
@@ -101,6 +100,7 @@ const Heading = styled.h1`
   line-height: 1.1;
   margin-bottom: 4rem;
   letter-spacing: -0.03em;
+  text-align: center;
 
   ${media('<=tablet')} {
     font-size: 4.6rem;
