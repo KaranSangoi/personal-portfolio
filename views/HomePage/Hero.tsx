@@ -35,8 +35,8 @@ export default function Hero() {
 
 const HeroWrapper = styled(Container)`
   display: flex;
-  padding-top: 10rem;
   justify-content: center;
+  background-color: #011c27;
 
   ${media('<=desktop')} {
     padding-top: 1rem;
@@ -47,10 +47,12 @@ const HeroWrapper = styled(Container)`
 
 const Contents = styled.div`
   flex: 1;
-  max-width: 60rem;
+  max-width: 80rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10rem;
+  color: rgb(var(--textSecondary));
 
   ${media('<=desktop')} {
     max-width: 100%;

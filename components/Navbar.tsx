@@ -69,7 +69,7 @@ export default function Navbar({ items }: NavbarProps) {
       <Content>
         <NextLink href="/" passHref>
           <LogoWrapper>
-            <Logo />
+            <img src="logo.png" alt="logo" width={100} height={100} />
           </LogoWrapper>
         </NextLink>
         <NavItemList>
@@ -150,11 +150,15 @@ const NavItemWrapper = styled.li<Partial<SingleNavItem>>`
 
   a {
     display: flex;
-    color: ${(p) => (p.outlined ? 'rgb(var(--textSecondary))' : 'rgb(var(--text), 0.75)')};
+    color: ${(p) => (p.outlined ? 'rgb(var(--textSecondary))' : 'rgb(var(--textSecondary))')};
     letter-spacing: 0.025em;
     text-decoration: none;
     padding: 0.75rem 1.5rem;
     font-weight: 700;
+
+    &:hover {
+      color: rgb(var(--secondary));
+    }
   }
 
   &:not(:last-child) {
@@ -170,21 +174,16 @@ const NavbarContainer = styled.div<NavbarContainerProps>`
   width: 100%;
   height: 8rem;
   z-index: var(--z-navbar);
-
-  background-color: rgb(var(--navbarBackground));
+  justify-content: center;
+  background-color: #011c27;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
-  visibility: ${(p) => (p.hidden ? 'hidden' : 'visible')};
-  transform: ${(p) => (p.hidden ? `translateY(-8rem) translateZ(0) scale(1)` : 'translateY(0) translateZ(0) scale(1)')};
-
-  transition-property: transform, visibility, height, box-shadow, background-color;
-  transition-duration: 0.15s;
-  transition-timing-function: ease-in-out;
 `;
 
 const Content = styled(Container)`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
+  max-width: 1100px;
 `;
 
 const ColorSwitcherContainer = styled.div`

@@ -70,7 +70,8 @@ const DarkerBackgroundContainer = styled.div`
   background: rgb(var(--background));
 
   & > *:not(:first-child) {
-    margin-top: 15rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 `;
 
@@ -82,7 +83,8 @@ const WhiteBackgroundContainer = styled.div`
   }
 
   & > *:not(:first-child) {
-    margin-top: 15rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 `;
 
