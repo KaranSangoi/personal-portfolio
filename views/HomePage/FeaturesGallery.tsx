@@ -1,6 +1,6 @@
-import NextImage from 'next/image';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import BasicCard from 'components/BasicCard';
 import Collapse from 'components/Collapse';
 import Container from 'components/Container';
 import OverTitle from 'components/OverTitle';
@@ -10,28 +10,35 @@ import { media } from 'utils/media';
 
 const TABS = [
   {
-    title: 'Find relevant media contacts - multiline title',
+    title: 'BEGIN',
     description:
-      '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
-    imageUrl: '/demo-illustration-3.png',
+      'If you are digital coach or course creator,<br/><br/> you probably may have created free lead magnet, a small trial first level product, or a basic digital course<br/><br/> and also you maybe doing 1-1 personal coaching! <br/><br/>That’s the ideal career growth of a coach!',
+
     baseColor: '249,82,120',
     secondColor: '221,9,57',
+    caption: '<p>Build Your Ideal Career Growth</p>',
   },
   {
-    title: 'Another amazing feature',
-    description:
-      '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
-    imageUrl: '/demo-illustration-4.png',
+    title: 'GROW',
+    description: `If you don't have all of these created yet, you're probably thinking about it.<br/><br/> Because apart from done-for-you services, everything else can generate you side income without your personal intervention.<br/><br/> "Create once and sell forever" is the motto!`,
+
     baseColor: '57,148,224',
     secondColor: '99,172,232',
+    caption: '<p>Build Your Regular Income</p>',
   },
   {
-    title: 'And yet... another truly fascinating feature',
-    description:
-      '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
-    imageUrl: '/demo-illustration-5.png',
+    title: 'AND TRANSFORM',
+    description: `Now, as your products and services are in place, its time to reap benefits!<br/><br/>
+      
+      But, wait... as you have grown busy now, who sells your services and products?<br/><br/>
+      
+      Because it can become really difficult to sell all of them simple by keeping them at linktree or posting some frequent social media stories/post about them! <br/><br/>
+      
+      That's where a landing page or website comes in. It acts as your salesperson, doing all the necessary things to sell your products and courses, even when you're not around.`,
+
     baseColor: '88,193,132',
     secondColor: '124,207,158',
+    caption: '<p>Time To Reap Benefits</p>',
   },
 ];
 
@@ -44,7 +51,7 @@ export default function FeaturesGallery() {
 
     return (
       <ImageContainer key={singleTab.title} isActive={isActive}>
-        <NextImage src={singleTab.imageUrl} alt={singleTab.title} layout="fill" objectFit="contain" priority={isFirst} />
+        <BasicCard key={singleTab.title} {...singleTab} />
       </ImageContainer>
     );
   });
@@ -62,7 +69,7 @@ export default function FeaturesGallery() {
         </TabTitleContainer>
         <Collapse isOpen={isActive} duration={300}>
           <TabContent>
-            <div dangerouslySetInnerHTML={{ __html: singleTab.description }}></div>
+            <div dangerouslySetInnerHTML={{ __html: singleTab.caption }}></div>
           </TabContent>
         </Collapse>
       </Tab>
@@ -75,14 +82,16 @@ export default function FeaturesGallery() {
 
   return (
     <FeaturesGalleryWrapper>
-      <Content>
-        <OverTitle>features</OverTitle>
-        <SectionTitle>What are you signing in for?</SectionTitle>
-      </Content>
-      <GalleryWrapper>
-        <TabsContainer>{tabsMarkup}</TabsContainer>
-        {imagesMarkup}
-      </GalleryWrapper>
+      <ContentWrapper>
+        <Content>
+          <OverTitle>Why Should You Care To</OverTitle>
+          <SectionTitle>2X YOUR COACHING BUSINESS?</SectionTitle>
+        </Content>
+        <GalleryWrapper>
+          <TabsContainer>{tabsMarkup}</TabsContainer>
+          {imagesMarkup}
+        </GalleryWrapper>
+      </ContentWrapper>
     </FeaturesGalleryWrapper>
   );
 }
@@ -92,14 +101,26 @@ const FeaturesGalleryWrapper = styled(Container)`
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  background-color: #011c27;
+  padding-bottom: 10rem !important;
+`;
+
+const ContentWrapper = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+  padding: 0;
 `;
 
 const GalleryWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-top: 4rem;
+  width: 100%;
 
-  ${media('<=desktop')} {
+  ${media('<=phone')} {
     flex-direction: column;
   }
 `;
@@ -109,6 +130,7 @@ const Content = styled.div`
     margin-top: 1rem;
   }
   text-align: center;
+  color: white;
 `;
 
 const TabsContainer = styled.div`
