@@ -33,7 +33,7 @@
     "schema-dts": "^1.0.0",
     "styled-components": "^5.3.5",
     "styled-icons": "^10.47.0",
-    "swiper": "8.3.2",
+    "swiper": "9.1.1",
     "tinacms": "^0.63.0",
     "url-loader": "^4.1.1",
     "use-clipboard-copy": "^0.2.0",
