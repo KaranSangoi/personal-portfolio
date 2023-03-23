@@ -120,7 +120,7 @@ const IndiStatWrapper = styled.div`
   padding: 0 3%;
 
   ${media('<=phone')} {
-    padding: 3%;
+    padding: 5% 3%;
   }
 `;
 

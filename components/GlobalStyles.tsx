@@ -4,7 +4,7 @@ import '@fontsource/poppins';
 // default breakpoints
 // {
 //   smallPhone: 320;
-//   phone: 375;
+//   phone: 600;
 //   tablet: 768;
 //   desktop: 1024;
 //   largeDesktop: 1440;

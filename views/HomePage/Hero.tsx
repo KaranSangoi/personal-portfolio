@@ -57,6 +57,9 @@ const Contents = styled.div`
   ${media('<=desktop')} {
     max-width: 100%;
   }
+  ${media('<=phone')} {
+    padding: 5rem;
+  }
 `;
 
 const CustomButtonGroup = styled(ButtonGroup)`

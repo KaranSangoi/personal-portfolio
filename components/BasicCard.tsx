@@ -29,7 +29,7 @@ const Card = styled.div`
   width: 100%;
   border-radius: 0.6rem;
   color: rgb(var(--text));
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 
   & > *:not(:first-child) {
     margin-top: 2rem;

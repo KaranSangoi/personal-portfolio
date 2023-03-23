@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import BasicCard from 'components/BasicCard';
 import Collapse from 'components/Collapse';
@@ -7,6 +7,32 @@ import OverTitle from 'components/OverTitle';
 import SectionTitle from 'components/SectionTitle';
 import ThreeLayersCircle from 'components/ThreeLayersCircle';
 import { media } from 'utils/media';
+
+const useMediaQuery = (width) => {
+  const [targetReached, setTargetReached] = useState(false);
+
+  const updateTarget = useCallback((e) => {
+    if (e.matches) {
+      setTargetReached(true);
+    } else {
+      setTargetReached(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width: ${width}px)`);
+    media.addEventListener('change', updateTarget);
+
+    // Check on mount (callback is not called until a change occurs)
+    if (media.matches) {
+      setTargetReached(true);
+    }
+
+    return () => media.removeEventListener('change', updateTarget);
+  }, []);
+
+  return targetReached;
+};
 
 const TABS = [
   {
@@ -44,14 +70,17 @@ const TABS = [
 
 export default function FeaturesGallery() {
   const [currentTab, setCurrentTab] = useState(TABS[0]);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const isBreakpoint = useMediaQuery(600);
 
   const imagesMarkup = TABS.map((singleTab, idx) => {
     const isActive = singleTab.title === currentTab.title;
-    const isFirst = idx === 0;
+
+    console.log('testtttt', isBreakpoint);
 
     return (
       <ImageContainer key={singleTab.title} isActive={isActive}>
-        <BasicCard key={singleTab.title} {...singleTab} />
+        {!isBreakpoint && <BasicCard key={singleTab.title} {...singleTab} />}
       </ImageContainer>
     );
   });
@@ -69,7 +98,11 @@ export default function FeaturesGallery() {
         </TabTitleContainer>
         <Collapse isOpen={isActive} duration={300}>
           <TabContent>
-            <div dangerouslySetInnerHTML={{ __html: singleTab.caption }}></div>
+            {isBreakpoint ? (
+              <div dangerouslySetInnerHTML={{ __html: singleTab.description }}></div>
+            ) : (
+              <div dangerouslySetInnerHTML={{ __html: singleTab.caption }}></div>
+            )}
           </TabContent>
         </Collapse>
       </Tab>
@@ -134,14 +167,14 @@ const Content = styled.div`
 `;
 
 const TabsContainer = styled.div`
-  flex: 1;
   margin-right: 4rem;
+  width: 30%;
 
   & > *:not(:first-child) {
     margin-top: 2rem;
   }
 
-  ${media('<=desktop')} {
+  ${media('<=phone')} {
     margin-right: 0;
     margin-bottom: 4rem;
     width: 100%;
@@ -149,28 +182,13 @@ const TabsContainer = styled.div`
 `;
 
 const ImageContainer = styled.div<{ isActive: boolean }>`
-  position: relative;
   overflow: hidden;
   border-radius: 0.8rem;
-  flex: ${(p) => (p.isActive ? '2' : '0')};
+  display: ${(p) => (p.isActive ? 'flex' : 'none')};
   box-shadow: var(--shadow-md);
+  width: 70%;
 
-  &:before {
-    display: block;
-    content: '';
-    width: 100%;
-    padding-top: calc((9 / 16) * 100%);
-  }
-
-  & > div {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  ${media('<=desktop')} {
+  ${media('<=phone')} {
     width: ${(p) => (p.isActive ? '100%' : '0')};
   }
 `;
@@ -189,7 +207,7 @@ const Tab = styled.div<{ isActive: boolean }>`
   font-size: 1.6rem;
   font-weight: bold;
 
-  ${media('<=desktop')} {
+  ${media('<=phone')} {
     width: 100%;
   }
 `;
