@@ -8,7 +8,7 @@ import SectionTitle from 'components/SectionTitle';
 import ThreeLayersCircle from 'components/ThreeLayersCircle';
 import { media } from 'utils/media';
 
-const useMediaQuery = (width) => {
+const useMediaQuery = (width: Number) => {
   const [targetReached, setTargetReached] = useState(false);
 
   const updateTarget = useCallback((e) => {
