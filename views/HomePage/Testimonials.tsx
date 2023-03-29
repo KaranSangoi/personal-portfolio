@@ -1,86 +1,105 @@
 import NextImage from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
-
 import { A11y, Autoplay, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Container from 'components/Container';
-import Separator from 'components/Separator';
+import OverTitle from 'components/OverTitle';
+import SectionTitle from 'components/SectionTitle';
 import { media } from 'utils/media';
 
 const TESTIMONIALS = [
   {
     companyLogoUrl: '/testimonials/company-logo-1.svg',
-    content: `Really good. I am so pleased with this product. I didn't even need training.`,
+    content: `AN EXTREMELY PROFESSIONAL, POLITE & EXPERIENCED CONSULTANT & DEVELOPER.`,
+    body: `Karan is extremely professional in his way of working. He first took a complete brief of our requirements & problems, studied the same and then offered the options available & also guided us with the best possible one based on our priorities, urgency of delivery & budget. He has been really polite, patient & has explained everything is layman terms for me & my team to understand. No matter how many time I must have emailed/ messaged him with my really basic doubts. Also he really ensures to deliver the project taken up one step at a time instead of any false assurances & is also honest to what will be possible and what will not. If you are looking for creating something entirely new or just troubleshoot something in your website/ app/ coding - he is the best person to consult and guide. Thank you, always appreciate your honesty and services.`,
     author: {
-      name: 'Clyde Edwards',
-      title: 'Very Serious Man',
-      avatarUrl: '/testimonials/author-photo-1.jpeg',
+      name: 'Saloni',
+      title: 'Happy Invites Video Invitation',
+      avatarUrl: '/testimonials/1.png',
     },
   },
   {
     companyLogoUrl: '/testimonials/company-logo-2.svg',
-    content: `It's really wonderful. I use saas product often. Thank You! Saas product has really helped our business.`,
+    content: `GREAT GUIDE TO BUILD ANY KIND OF WEBSITES.`,
+    body: `Karan Sangoi is a great guide to build any kind of websites who supported me in my tough times. He is so knowledgeable, I got my site up and running in less than an hour through his support. Thank you so much.`,
     author: {
-      name: 'Jimmy Hunter',
-      title: 'Sigma Male University Graduate',
+      name: 'Dhivya',
+      title: 'Lime Fresh',
       avatarUrl: '/testimonials/author-photo-2.jpeg',
     },
   },
   {
     companyLogoUrl: '/testimonials/company-logo-3.svg',
-    content: `Since I invested in saas product I made over 100,000 dollars profits. It really saves me time and effort. saas product is exactly what our business has been lacking.`,
+    content: `KARAN IS A ONE-STOP DESTINATION FOR ALL MY WEBSITE NEEDS.`,
+    body: `Karan is a one-stop destination for me for all of my concerns related to website issues as well as graphic design. Want to have a website developed? You can find anyone. But if you want to have a critical thinker who would recommend what is right for you and give life to it, then Karan is the person you should reach. I'm happy with the support I am receiving from him and would reach him for all of my website and graphics-related projects.`,
     author: {
-      name: 'Marjorie Morgan',
-      title: 'Chief Chad Officer',
-      avatarUrl: '/testimonials/author-photo-3.jpeg',
+      name: 'Abinay Mandla',
+      title: 'Abinay Mandla',
+      avatarUrl: '/testimonials/3.jpeg',
     },
   },
 ];
 
 export default function Testimonials() {
   return (
-    <div>
-      <Separator />
-      <TestimonialsWrapper>
-        <Swiper modules={[Navigation, Autoplay, A11y]} slidesPerView={1} autoplay={{ delay: 8000 }} centeredSlides navigation loop>
-          {TESTIMONIALS.map((singleTestimonial, idx) => (
-            <SwiperSlide key={idx}>
-              <TestimonialCard>
-                <NextImage
-                  src={singleTestimonial.companyLogoUrl}
-                  alt={`${singleTestimonial.author.name}'s company logo`}
-                  width={200}
-                  height={40}
-                />
-                <Content>“{singleTestimonial.content}”</Content>
-                <AuthorContainer>
-                  <AuthorImageContainer>
-                    <NextImage src={singleTestimonial.author.avatarUrl} alt={singleTestimonial.author.name} width={48} height={48} />
-                  </AuthorImageContainer>
-                  <AuthorContent>
-                    <AuthorName>{singleTestimonial.author.name}</AuthorName>
-                    <AuthorTitle>{singleTestimonial.author.title}</AuthorTitle>
-                  </AuthorContent>
-                </AuthorContainer>
-              </TestimonialCard>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </TestimonialsWrapper>
-      <Separator />
-    </div>
+    <MainWrapper>
+      <ContentWrapper>
+        <OverTitle>Believe Me, I want to really help</OverTitle>
+        <SectionTitle>How I Have Helped Others Over Time</SectionTitle>
+        <TestimonialsWrapper>
+          <Swiper modules={[Navigation, Autoplay, A11y]} slidesPerView={1} autoplay={{ delay: 5000 }} centeredSlides navigation loop>
+            {TESTIMONIALS.map((singleTestimonial, idx) => (
+              <SwiperSlide key={idx}>
+                <TestimonialCard>
+                  <AuthorContainer>
+                    <AuthorImageContainer>
+                      <NextImage src={singleTestimonial.author.avatarUrl} alt={singleTestimonial.author.name} width={60} height={60} />
+                    </AuthorImageContainer>
+                    <AuthorContent>
+                      <AuthorName>{singleTestimonial.author.name}</AuthorName>
+                      <AuthorTitle>{singleTestimonial.author.title}</AuthorTitle>
+                    </AuthorContent>
+                  </AuthorContainer>
+                  <Content>“{singleTestimonial.content}”</Content>
+                  <Description>{singleTestimonial.body}</Description>
+                </TestimonialCard>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </TestimonialsWrapper>
+      </ContentWrapper>
+    </MainWrapper>
   );
 }
 
+const MainWrapper = styled.div`
+  background: rgb(var(--secondBackground));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ContentWrapper = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+  & > *:first-child {
+    margin-bottom: 4rem;
+    color: rgb(var(--secondary));
+  }
+`;
+
 const TestimonialsWrapper = styled(Container)`
   position: relative;
-
+  margin-top: 4rem;
   .swiper-button-prev,
   .swiper-button-next {
     color: rgb(var(--secondary));
 
-    ${media('<=desktop')} {
+    ${media('<=phone')} {
       display: none;
     }
   }
@@ -111,9 +130,21 @@ const Content = styled.blockquote`
   font-size: 2.2rem;
   font-weight: bold;
   font-style: italic;
-  max-width: 60%;
+  max-width: 70%;
+  color: rgb(var(--secondary));
+  ${media('<=phone')} {
+    max-width: 100%;
+  }
+`;
 
-  ${media('<=desktop')} {
+const Description = styled.div`
+  text-align: justify;
+  font-size: 1.5rem;
+  color: rgba(var(--text), 0.9);
+  margin-top: 1rem !important;
+  max-width: 70%;
+
+  ${media('<=phone')} {
     max-width: 100%;
   }
 `;
