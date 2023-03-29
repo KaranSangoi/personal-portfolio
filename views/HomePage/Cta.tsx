@@ -71,7 +71,7 @@ const Stack = styled.div`
 
 const OutlinedButton = styled(Button)`
   border: 1px solid rgb(var(--text));
-  color: rgb(var(--text));
+  color: rgb(var(--text)) !important;
 `;
 
 const CtaWrapper = styled.div`

@@ -17,7 +17,7 @@ export default function BasicCard({ title, description, solution, imageUrl, show
       <Description>
         <div dangerouslySetInnerHTML={{ __html: description }}></div>
       </Description>
-      {showSolution && (
+      {showSolution && solution && (
         <>
           <SolutionTitle>Solution</SolutionTitle>
           <SolutionDescription>

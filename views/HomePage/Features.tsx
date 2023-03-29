@@ -151,7 +151,6 @@ const FeaturesWrapper = styled(Container)`
   flex-direction: column;
   justify-content: center;
   background-color: #011c27;
-  padding-bottom: 10rem !important;
 `;
 
 const ContentWrapper = styled(Container)`
