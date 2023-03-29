@@ -11,7 +11,7 @@ export default function BasicCard({ title, description, imageUrl }: BasicCardPro
   return (
     <Card>
       {imageUrl && <NextImage src={imageUrl} width={108} height={80} alt={title} />}
-      <Title>{title}</Title>
+      {imageUrl ? <CenterTitle>{title}</CenterTitle> : <Title>{title}</Title>}
       <Description>
         <div dangerouslySetInnerHTML={{ __html: description }}></div>
       </Description>
@@ -38,6 +38,11 @@ const Card = styled.div`
 
 const Title = styled.div`
   font-weight: bold;
+`;
+
+const CenterTitle = styled.div`
+  font-weight: bold;
+  text-align: center;
 `;
 
 const Description = styled.div`
