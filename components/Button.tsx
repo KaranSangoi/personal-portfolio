@@ -21,6 +21,7 @@ const Button = styled.a<ButtonProps>`
   transition: transform 0.3s;
   backface-visibility: hidden;
   cursor: pointer;
+  letter-spacing: 2px;
 
   span {
     margin-left: 2rem;

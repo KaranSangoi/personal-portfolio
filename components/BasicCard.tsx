@@ -4,10 +4,12 @@ import styled from 'styled-components';
 interface BasicCardProps {
   title: string;
   description: string;
+  solution: string;
   imageUrl?: string;
+  showSolution: boolean;
 }
 
-export default function BasicCard({ title, description, imageUrl }: BasicCardProps) {
+export default function BasicCard({ title, description, solution, imageUrl, showSolution }: BasicCardProps) {
   return (
     <Card>
       {imageUrl && <NextImage src={imageUrl} width={108} height={80} alt={title} />}
@@ -15,6 +17,14 @@ export default function BasicCard({ title, description, imageUrl }: BasicCardPro
       <Description>
         <div dangerouslySetInnerHTML={{ __html: description }}></div>
       </Description>
+      {showSolution && (
+        <>
+          <SolutionTitle>Solution</SolutionTitle>
+          <SolutionDescription>
+            <div dangerouslySetInnerHTML={{ __html: solution }}></div>
+          </SolutionDescription>
+        </>
+      )}
     </Card>
   );
 }
@@ -48,4 +58,15 @@ const CenterTitle = styled.div`
 const Description = styled.div`
   opacity: 0.8;
   text-align: left;
+`;
+
+const SolutionTitle = styled.div`
+  font-weight: bold;
+  color: rgb(var(--secondary));
+`;
+
+const SolutionDescription = styled.div`
+  opacity: 0.9;
+  text-align: left;
+  color: rgb(var(--secondary));
 `;
