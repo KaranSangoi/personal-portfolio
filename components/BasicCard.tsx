@@ -4,9 +4,9 @@ import styled from 'styled-components';
 interface BasicCardProps {
   title: string;
   description: string;
-  solution: string;
+  solution?: string;
   imageUrl?: string;
-  showSolution: boolean;
+  showSolution?: boolean;
 }
 
 export default function BasicCard({ title, description, solution, imageUrl, showSolution }: BasicCardProps) {
