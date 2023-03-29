@@ -13,21 +13,20 @@ export default function Cta() {
     <CtaWrapper>
       <Container>
         <Stack>
-          <OverTitle>Lorem ipsum dolor sit amet</OverTitle>
-          <SectionTitle>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus delectus?</SectionTitle>
+          <OverTitle>Or, If you dont want to read along</OverTitle>
+          <SectionTitle>And you directly want to transform</SectionTitle>
           <Description>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda beatae accusamus deleniti nihil quas tempora numquam, vitae
-            culpa.
+            Then, without wasting any time, book a free call with me, so that I can explain to you visually, how can I help.
           </Description>
           <ButtonGroup>
-            <NextLink href="#early-access" passHref>
+            <NextLink href="#calendly" passHref>
               <Button>
-                Subscribe to the newsletter <span>&rarr;</span>
+                Book Free Call <span>&rarr;</span>
               </Button>
             </NextLink>
             <NextLink href="#whitepaper" passHref>
               <OutlinedButton transparent>
-                Features <span>&rarr;</span>
+                Read Along <span>&rarr;</span>
               </OutlinedButton>
             </NextLink>
           </ButtonGroup>
@@ -39,14 +38,14 @@ export default function Cta() {
 
 const Description = styled.div`
   font-size: 1.8rem;
-  color: rgba(var(--textSecondary), 0.8);
+  color: rgba(var(--text), 0.8);
 `;
 
 const Stack = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 12.5rem 0;
-  color: rgb(var(--textSecondary));
+  padding: 4.5rem 0;
+  color: rgb(var(--text));
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -54,6 +53,10 @@ const Stack = styled.div`
   & > *:not(:first-child) {
     max-width: 80%;
     margin-top: 4rem;
+  }
+
+  & > *:first-child {
+    color: rgb(var(--secondary));
   }
 
   ${media('<=tablet')} {
@@ -67,10 +70,10 @@ const Stack = styled.div`
 `;
 
 const OutlinedButton = styled(Button)`
-  border: 1px solid rgb(var(--textSecondary));
-  color: rgb(var(--textSecondary));
+  border: 1px solid rgb(var(--text));
+  color: rgb(var(--text));
 `;
 
 const CtaWrapper = styled.div`
-  background: rgb(var(--secondary));
+  background: rgb(var(--secondBackground));
 `;

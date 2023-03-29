@@ -1,60 +1,31 @@
-import { Users } from '@styled-icons/fa-solid/Users';
-import { MoreTime } from '@styled-icons/material-rounded/MoreTime';
-import { ExchangeDollar } from '@styled-icons/remix-line/ExchangeDollar';
 import React from 'react';
 import styled from 'styled-components';
 import Container from 'components/Container';
+import OverTitle from 'components/OverTitle';
 import { media } from 'utils/media';
-
-const BlueMoreTime = styled(MoreTime)`
-  color: rgb(var(--primary));
-  width: 7rem;
-
-  ${media('<=phone')} {
-    width: 5rem;
-  }
-`;
-
-const BlueUsers = styled(Users)`
-  color: rgb(var(--primary));
-  width: 7rem;
-
-  ${media('<=phone')} {
-    width: 5rem;
-  }
-`;
-
-const BlueExchangeDollar = styled(ExchangeDollar)`
-  color: rgb(var(--primary));
-  width: 7rem;
-
-  ${media('<=phone')} {
-    width: 5rem;
-  }
-`;
 
 export default function Partners() {
   return (
     <PartnersWrapper>
       <Content>
-        <Title>Some Numbers</Title>
+        <OverTitle>Some Numbers</OverTitle>
         <StatWrapper>
           <IndiStatWrapper>
-            <BlueMoreTime />
+            <h1>2000+</h1>
             <Description>
-              <span>2000+</span> hours saved <br /> and counting...
+              hours saved <br /> and counting...
             </Description>
           </IndiStatWrapper>
           <IndiStatWrapper>
-            <BlueUsers />
+            <h1>20+</h1>
             <Description>
-              <span>15+</span> clients served <br /> and counting...
+              clients served <br /> and counting...
             </Description>
           </IndiStatWrapper>
           <IndiStatWrapper>
-            <BlueExchangeDollar />
+            <h1>69K+</h1>
             <Description>
-              <span>69K+</span> client revenue <br /> and counting...
+              client revenue <br /> and counting...
             </Description>
           </IndiStatWrapper>
         </StatWrapper>
@@ -63,20 +34,6 @@ export default function Partners() {
   );
 }
 
-const Title = styled.h3`
-  font-size: 1.3rem;
-  letter-spacing: 0.02em;
-  line-height: 0;
-  text-transform: uppercase;
-  margin-bottom: 4rem;
-  text-align: center;
-  opacity: 0.8;
-
-  ${media('<=desktop')} {
-    line-height: 1.5;
-  }
-`;
-
 const Content = styled(Container)`
   display: flex;
   flex-direction: column;
@@ -84,6 +41,9 @@ const Content = styled(Container)`
   align-items: center;
   max-width: 1100px;
   padding: 0;
+  & > *:first-child {
+    margin-bottom: 4rem;
+  }
 `;
 
 const Description = styled.p`
@@ -94,11 +54,6 @@ const Description = styled.p`
 
   ${media('<=desktop')} {
     font-size: 1.5rem;
-  }
-
-  span {
-    color: rgb(var(--secondary));
-    font-weight: 700;
   }
 `;
 
@@ -114,6 +69,7 @@ const StatWrapper = styled.div`
 
 const IndiStatWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   font-size: 16px;
   justify-content: center;
@@ -121,6 +77,12 @@ const IndiStatWrapper = styled.div`
 
   ${media('<=phone')} {
     padding: 5% 3%;
+  }
+
+  h1 {
+    color: rgb(var(--secondary));
+    font-weight: 700;
+    padding-bottom: 1rem;
   }
 `;
 
