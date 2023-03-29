@@ -37,8 +37,13 @@ const useMediaQuery = (width: Number) => {
 const TABS = [
   {
     title: 'BEGIN',
-    description:
-      'If you are digital coach or course creator,<br/><br/> you probably may have created free lead magnet, a small trial first level product, or a basic digital course<br/><br/> and also you maybe doing 1-1 personal coaching! <br/><br/>That’s the ideal career growth of a coach!',
+    description: `Begin  your digital coaching journey!<br/><br/>
+       👉Choose a Niche!<br/>
+       👉Do Content Marketing!<br/>
+       👉Do Lead Gen, Nuturing, and Sales!<br/>
+       👉Do 1-1 Coaching!<br/>
+       👉Do Group Coaching!<br/><br/>       
+       That’s the ideal career growth of a coach!`,
 
     baseColor: '249,82,120',
     secondColor: '221,9,57',
@@ -46,7 +51,13 @@ const TABS = [
   },
   {
     title: 'GROW',
-    description: `If you don't have all of these created yet, you're probably thinking about it.<br/><br/> Because apart from done-for-you services, everything else can generate you side income without your personal intervention.<br/><br/> "Create once and sell forever" is the motto!`,
+    description: `As you build your Coaching Business, it's time to GROW!<br/><br/>
+    You need to start creating -<br/>
+    👉Digital Products<br/>
+    👉Recorded Courses <br/>
+    👉E-books, PDF's <br/><br/>
+    Because apart from done-for-you services, everything else can generate you side income without your personal intervention.<br/><br/>
+     <b>"Create once and sell forever"</b> is the motto!`,
 
     baseColor: '57,148,224',
     secondColor: '99,172,232',
@@ -58,9 +69,11 @@ const TABS = [
       
       But, wait... as you have grown busy now, who sells your services and products?<br/><br/>
       
-      Because it can become really difficult to sell all of them simple by keeping them at linktree or posting some frequent social media stories/post about them! <br/><br/>
+      Because it can become really difficult to sell all of them by keeping them at linktree or posting some frequent social media stories/post about them! <br/><br/>
+
+      This is sign to TRANSFORM and SCALE UP, to 2X! And don't miss this bus to 2X. <br/><br/>
       
-      That's where a landing page or website comes in. It acts as your salesperson, doing all the necessary things to sell your products and courses, even when you're not around.`,
+      So Read Along, to <b>TRANSFORM AND SCALE 2X!</b>`,
 
     baseColor: '88,193,132',
     secondColor: '124,207,158',
@@ -75,8 +88,6 @@ export default function FeaturesGallery() {
 
   const imagesMarkup = TABS.map((singleTab, idx) => {
     const isActive = singleTab.title === currentTab.title;
-
-    console.log('testtttt', isBreakpoint);
 
     return (
       <ImageContainer key={singleTab.title} isActive={isActive}>
@@ -117,8 +128,8 @@ export default function FeaturesGallery() {
     <FeaturesGalleryWrapper>
       <ContentWrapper>
         <Content>
-          <OverTitle>Why Should You Care To</OverTitle>
-          <SectionTitle>2X YOUR COACHING BUSINESS?</SectionTitle>
+          <OverTitle>Your Current Journey To</OverTitle>
+          <SectionTitle>2X YOUR COACHING BUSINESS!</SectionTitle>
         </Content>
         <GalleryWrapper>
           <TabsContainer>{tabsMarkup}</TabsContainer>
@@ -160,10 +171,14 @@ const GalleryWrapper = styled.div`
 
 const Content = styled.div`
   & > *:not(:first-child) {
-    margin-top: 1rem;
+    margin-top: 4rem;
   }
   text-align: center;
   color: white;
+
+  & > *:first-child {
+    color: rgb(var(--secondary));
+  }
 `;
 
 const TabsContainer = styled.div`
